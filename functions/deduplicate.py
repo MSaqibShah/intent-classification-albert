@@ -8,5 +8,5 @@ def deduplicate(file_path, save_file_path):
             f.write(f"{line}")
 
 
-deduplicate('E:\yes-no-maybe-intent\data\\no.md',
-            'E:\yes-no-maybe-intent\data\\no_clean.md')
+deduplicate('E:\yes-no-maybe-intent\data\\callback.md',
+            'E:\yes-no-maybe-intent\data\\callback_clean.md')

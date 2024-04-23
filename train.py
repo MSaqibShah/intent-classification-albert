@@ -11,10 +11,10 @@ import torch.optim as optim
 batch_size = 32
 num_epochs = 40
 learning_rate = 2e-5
-num_classes = 3
+num_classes = 4
 
 # Load the extended dataset
-dataset_path = "data\clean\\final_clean_data.csv"
+dataset_path = "data\clean\intents_data_v2.csv"
 df = pd.read_csv(dataset_path)
 
 # Split the dataset into train, validation, and test sets
@@ -45,16 +45,16 @@ val_labels = val_df['intent'].tolist()
 test_labels = test_df['intent'].tolist()
 
 c2l = ClassLabel(num_classes=num_classes, names=[
-                 "yes_intent", "no_intent", "maybe_intent"])
+                 "yes_intent", "no_intent", "call_back_later_intent", "contact_human_agent_intent"])
 
 train_label_encodings = [c2l.str2int(label) for label in train_labels]
 val_label_encodings = [c2l.str2int(label) for label in val_labels]
 test_label_encodings = [c2l.str2int(label) for label in test_labels]
 
 
-print("Train Labels: ", train_label_encodings)
-print("Val Labels: ", val_label_encodings)
-print("Test Labels: ", test_label_encodings)
+# print("Train Labels: ", train_label_encodings)
+# print("Val Labels: ", val_label_encodings)
+# print("Test Labels: ", test_label_encodings)
 # # Convert labels to tensors
 train_labels = torch.tensor(train_label_encodings)
 val_labels = torch.tensor(val_label_encodings)
